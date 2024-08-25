@@ -764,26 +764,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aktan\\.nuget\\packages\\": {}
+    "/Users/saundler/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\se\\course_proj\\MessageForwarder\\Core\\Core.csproj",
+      "projectUniqueName": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\se\\course_proj\\MessageForwarder\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\aktan\\.nuget\\packages\\",
-      "outputPath": "C:\\se\\course_proj\\MessageForwarder\\Core\\obj\\",
+      "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj",
+      "packagesPath": "/Users/saundler/.nuget/packages/",
+      "outputPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aktan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/saundler/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -839,7 +837,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/saundler/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

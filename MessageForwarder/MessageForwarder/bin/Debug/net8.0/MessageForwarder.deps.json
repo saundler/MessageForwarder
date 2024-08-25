@@ -9,11 +9,7 @@
       "MessageForwarder/1.0.0": {
         "dependencies": {
           "Core": "1.0.0",
-          "Infrastructure": "1.0.0",
-          "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
-          "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0"
+          "Infrastructure": "1.0.0"
         },
         "runtime": {
           "MessageForwarder.dll": {}
@@ -156,6 +152,14 @@
           "System.Text.Encodings.Web": "8.0.0"
         }
       },
+      "WebSocketSharp/1.0.3-rc11": {
+        "runtime": {
+          "lib/websocket-sharp.dll": {
+            "assemblyVersion": "1.0.2.59611",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "Core/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "8.0.0",
@@ -175,7 +179,8 @@
           "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.3",
+          "WebSocketSharp": "1.0.3-rc11"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -286,6 +291,13 @@
       "sha512": "sha512-OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
       "path": "system.text.json/8.0.0",
       "hashPath": "system.text.json.8.0.0.nupkg.sha512"
+    },
+    "WebSocketSharp/1.0.3-rc11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7VCF7f7zVMOvLGD8LeGS4DVXc8lOcB6kXnUMeTxigu+PMiU+6wW5Olq2gYrDU8vDRKOwFY+5RyBaLyzb8skEzA==",
+      "path": "websocketsharp/1.0.3-rc11",
+      "hashPath": "websocketsharp.1.0.3-rc11.nupkg.sha512"
     },
     "Core/1.0.0": {
       "type": "project",

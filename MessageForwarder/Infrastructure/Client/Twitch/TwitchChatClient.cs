@@ -1,8 +1,5 @@
-﻿using System;
-using System.Net.WebSockets;
+﻿using System.Net.WebSockets;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Core.Service;
 
 public class TwitchChatClient
@@ -17,15 +14,26 @@ public class TwitchChatClient
         channel = "NotSpecified";
     }
 
-    public async Task ConnectToTwitchAsync()
+    private async Task ConnectAsync()
     {
         client = new ClientWebSocket();
         await client.ConnectAsync(new Uri("wss://irc-ws.chat.twitch.tv:443"), CancellationToken.None);
         Console.WriteLine("Connected to Twitch IRC");
     }
-
+    
+    private async Task SendAsync(string message)
+    {
+        if (client?.State != WebSocketState.Open)
+        {
+            throw new InvalidOperationException("WebSocket is not connected.");
+        }
+        var bytes = Encoding.UTF8.GetBytes(message + "\r\n");
+        await client.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
+    }
+    
     public async Task<bool> AuthenticateAndJoinChannelAsync(string token, string username, string channel)
     {
+        await ConnectAsync();
         await SendAsync($"PASS oauth:{token}");
         await SendAsync($"NICK {username}");
         await SendAsync("CAP REQ :twitch.tv/membership twitch.tv/tags twitch.tv/commands");
@@ -42,18 +50,8 @@ public class TwitchChatClient
         this.channel = channel;
         return true;
     }
-
-    private async Task SendAsync(string message)
-    {
-        if (client?.State != WebSocketState.Open)
-        {
-            throw new InvalidOperationException("WebSocket is not connected.");
-        }
-        var bytes = Encoding.UTF8.GetBytes(message + "\r\n");
-        await client.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
-    }
-
-    public async Task SendMessageAsync(string message)
+    
+    private async Task SendMessageAsync(string message)
     {
         if (client?.State != WebSocketState.Open)
         {
@@ -66,7 +64,7 @@ public class TwitchChatClient
         await SendAsync($"PRIVMSG #{channel} :{message}");
     }
 
-    public async Task<string> GetMessageAsync()
+    private async Task<string> GetMessageAsync()
     {
         if (client.State != WebSocketState.Open)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Core;
@@ -15,21 +16,52 @@ namespace MessageForwarder
     {
         static async Task Main(string[] args)
         {
-            
-            var serviceCollection = new ServiceCollection();
-            ConfigureServices(serviceCollection);
+            // var serviceCollection = new ServiceCollection();
+            // ConfigureServices(serviceCollection);
+            //
+            // var serviceProvider = serviceCollection.BuildServiceProvider();
+            //
+            // var twitchBot = serviceProvider.GetService<TwitchBot>();
+            // var vkLiveBot = serviceProvider.GetService<VKLiveBot>();
+            // var chatBot = serviceProvider.GetService<ChatBot>();
+            //
+            // // await vkLiveBot.СonnectToChat();
+            // // await twitchBot.RefreshUserAccessToken();
+            // // await twitchBot.СonnectToChat();
+            //
+            // // Пример отправки сообщения с помощью chatBot
+            // await chatBot.SendMessageAsync("saunder", "Hello, World!");
 
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+            // string clientId = "60a261b04b75fd65fc022ec4c240e6d1"; // Замените на ваш client_id
+            // string clientSecret = "49158d9752c4baa71277a4ff3a2b4f55"; // Замените на ваш client_secret
+            // string authorizationCode = "YOUR_AUTHORIZATION_CODE"; // Код авторизации, полученный через OAuth 2.0
+            // string redirectUri = "http://localhost:3000"; // Ваш redirect URI
 
-            var twitchBot = serviceProvider.GetService<TwitchBot>();
+            using (HttpClient httpClient = new HttpClient())
+            {
+                // Создаем экземпляр WebSocketClient
+                WebSocketClient webSocketClient = new WebSocketClient(httpClient);
 
-            await twitchBot.RefreshUserAccessToken();
-            await twitchBot.СonnectToChat();
+                // Подключаемся к WebSocket серверу
+                await webSocketClient.ConnectAsync();
+
+                // // Отправляем сообщение в чат VK Play Live
+                string messageToSend = "Привет, Актан!";
+                await webSocketClient.SendMessageAsync(messageToSend);
+                // while (true)
+                // {
+                    // await webSocketClient.ReceiveMessagesAsync();
+                // }
+            }
         }
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            File.Copy("../../../appsettings.json", "appsettings.json", true);
+            if (!File.Exists("appsettings.json"))
+            {
+                File.Copy("../../../appsettings.json", "appsettings.json", true);
+            }
+
             // Настройка конфигурации
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
@@ -46,6 +78,7 @@ namespace MessageForwarder
             services.AddTransient<TwitchApiClient>();
             services.AddTransient<TwitchChatClient>();
             services.AddTransient<TwitchBot>();
+            services.AddTransient<WebSocketClient>(sp => new WebSocketClient(sp.GetRequiredService<HttpClient>()));
         }
     }
 }

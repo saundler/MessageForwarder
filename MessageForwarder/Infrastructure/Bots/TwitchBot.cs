@@ -12,7 +12,7 @@ namespace Core
         private readonly string botUsername;
         private readonly string redirectUri;
         private readonly string authorizationCode;
-        public string ChannelId { get; set; }
+        public string Channel { get; set; }
         public string AccessToken { get; private set; }
         public string RefreshToken { get; private set; }
         private readonly TwitchApiClient twitchApiClient;
@@ -27,7 +27,7 @@ namespace Core
             botUsername = settings.BotUsername;
             redirectUri = settings.RedirectUri;
             authorizationCode = settings.AuthorizationCode;
-            ChannelId = settings.ChannelId;
+            Channel = settings.ChannelId;
             RefreshToken = settings.RefreshToken;
             this.twitchApiClient = twitchApiClient;
             this.twitchChatClient = twitchChatClient;
@@ -47,12 +47,11 @@ namespace Core
 
         public async Task СonnectToChat()
         {
-            if (ChannelId == null)
+            if (Channel == null)
             {
                 throw new InvalidOperationException("Channel info is not set.");
             }
-            await twitchChatClient.ConnectToTwitchAsync();
-            isConnected = await twitchChatClient.AuthenticateAndJoinChannelAsync(AccessToken, botUsername, ChannelId);
+            isConnected = await twitchChatClient.AuthenticateAndJoinChannelAsync(AccessToken, botUsername, Channel);
             _ = Task.Run(() => twitchChatClient.MonitorChatAsync());
             while (true)
             {

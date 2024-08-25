@@ -267,6 +267,15 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
+      "WebSocketSharp/1.0.3-rc11": {
+        "type": "package",
+        "compile": {
+          "lib/websocket-sharp.dll": {}
+        },
+        "runtime": {
+          "lib/websocket-sharp.dll": {}
+        }
+      },
       "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -770,6 +779,19 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "WebSocketSharp/1.0.3-rc11": {
+      "sha512": "7VCF7f7zVMOvLGD8LeGS4DVXc8lOcB6kXnUMeTxigu+PMiU+6wW5Olq2gYrDU8vDRKOwFY+5RyBaLyzb8skEzA==",
+      "type": "package",
+      "path": "websocketsharp/1.0.3-rc11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/websocket-sharp.dll",
+        "lib/websocket-sharp.xml",
+        "websocketsharp.1.0.3-rc11.nupkg.sha512",
+        "websocketsharp.nuspec"
+      ]
+    },
     "Core/1.0.0": {
       "type": "project",
       "path": "../Core/Core.csproj",
@@ -783,38 +805,37 @@
       "Microsoft.Extensions.Configuration.Binder >= 8.0.2",
       "Microsoft.Extensions.Configuration.Json >= 8.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "WebSocketSharp >= 1.0.3-rc11"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aktan\\.nuget\\packages\\": {}
+    "/Users/saundler/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\se\\course_proj\\MessageForwarder\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\se\\course_proj\\MessageForwarder\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\aktan\\.nuget\\packages\\",
-      "outputPath": "C:\\se\\course_proj\\MessageForwarder\\Infrastructure\\obj\\",
+      "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj",
+      "packagesPath": "/Users/saundler/.nuget/packages/",
+      "outputPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aktan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/saundler/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\se\\course_proj\\MessageForwarder\\Core\\Core.csproj": {
-              "projectPath": "C:\\se\\course_proj\\MessageForwarder\\Core\\Core.csproj"
+            "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj": {
+              "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj"
             }
           }
         }
@@ -848,6 +869,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "WebSocketSharp": {
+            "target": "Package",
+            "version": "[1.0.3-rc11, )"
           }
         },
         "imports": [
@@ -866,8 +891,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/saundler/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WebSocketSharp 1.0.3-rc11' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "WebSocketSharp",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
