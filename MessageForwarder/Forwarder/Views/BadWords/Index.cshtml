@@ -1,0 +1,39 @@
+@model IEnumerable<MessageForwarder.Data.BadWord>
+
+<h2>Список запрещённых слов</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Слово</th>
+        <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var badWord in Model)
+    {
+    <tr>
+        <td>@badWord.Id</td>
+        <td>@badWord.Word</td>
+        <td>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@badWord.Id" />
+                <button type="submit" class="btn btn-danger">Удалить</button>
+            </form>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+
+<!-- Кнопка для добавления нового слова -->
+<a href="/BadWords/Add" class="btn btn-primary" style="margin-top: 20px;">Добавить новое слово</a>
+
+<!-- Кнопка для импорта слов из CSV -->
+<a href="/BadWords/Import" class="btn btn-secondary" style="margin-top: 20px; margin-left: 20px;">Импортировать из CSV</a>
+
+<!-- Кнопка для удаления всех слов -->
+<form asp-action="ClearAll" method="post" class="mt-3">
+    <button type="submit" class="btn btn-warning">Удалить все слова</button>
+</form>

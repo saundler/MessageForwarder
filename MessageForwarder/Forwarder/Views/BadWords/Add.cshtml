@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Добавить новое слово";
+}
+
+<h2>Добавить новое запрещённое слово</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label for="newWord">Новое запрещённое слово</label>
+        <input type="text" id="newWord" name="newWord" class="form-control" />
+    </div>
+    
+    <!-- Добавляем отступ между полем ввода и кнопками -->
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Добавить слово</button>
+        <a href="/BadWords/Index" class="btn btn-secondary">Отмена</a>
+    </div>
+</form>

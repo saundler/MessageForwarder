@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Импортировать запрещённые слова";
+}
+
+<h2>Импортировать запрещённые слова из CSV</h2>
+
+<form asp-action="Import" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="csvFile">Выберите CSV-файл</label>
+        <input type="file" name="csvFile" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Импортировать</button>
+</form>
+
+<a href="/BadWords/Index" class="btn btn-secondary" style="margin-top: 20px;">Назад</a>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" style="margin-top: 20px;">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" style="margin-top: 20px;">
+        @TempData["ErrorMessage"]
+    </div>
+}

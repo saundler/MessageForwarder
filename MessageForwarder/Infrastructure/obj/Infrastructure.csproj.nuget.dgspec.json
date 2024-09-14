@@ -4,14 +4,14 @@
     "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj": {
+    "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj",
-        "projectName": "Core",
-        "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj",
+        "projectUniqueName": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj",
         "packagesPath": "/Users/saundler/.nuget/packages/",
-        "outputPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/obj/",
+        "outputPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/saundler/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,28 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -57,85 +79,30 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/Users/saundler/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj",
-        "projectName": "Infrastructure",
-        "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/Infrastructure.csproj",
-        "packagesPath": "/Users/saundler/.nuget/packages/",
-        "outputPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Infrastructure/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/saundler/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj": {
-                "projectPath": "/Users/saundler/repo/MessageForwarder/MessageForwarder/Core/Core.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.Extensions.Configuration": {
-              "target": "Package",
-              "version": "[8.0.0, )"
             },
-            "Microsoft.Extensions.Configuration.Binder": {
+            "SQLite.CodeFirst": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[1.7.0.36, )"
             },
-            "Microsoft.Extensions.Configuration.Json": {
+            "System.Data.SQLite": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[1.0.118, )"
             },
-            "Microsoft.Extensions.DependencyInjection": {
+            "System.Data.SQLite.Core": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[1.0.118, )"
             },
-            "Newtonsoft.Json": {
+            "System.Data.SQLite.EF6": {
               "target": "Package",
-              "version": "[13.0.3, )"
+              "version": "[1.0.118, )"
+            },
+            "System.Data.SQLite.EF6.Migrations": {
+              "target": "Package",
+              "version": "[1.0.113, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[19.0.0, )"
             },
             "WebSocketSharp": {
               "target": "Package",
