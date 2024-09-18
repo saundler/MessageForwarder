@@ -1,0 +1,34 @@
+﻿@model Forwarder.Models.BotSettingsViewModel
+
+@{
+ViewData["Title"] = "Bot Settings";
+}
+
+<h2>Настройки Ботов</h2>
+
+@* Добавляем блок для отображения ошибок *@
+@Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+<form asp-action="Index" method="post">
+    <div class="form-group mb-4"> <!-- Добавляем отступ снизу -->
+        <label for="TwitchChannel">Twitch Channel</label>
+        <input type="text" asp-for="TwitchChannel" class="form-control" id="TwitchChannel" />
+    </div>
+    <div class="form-group mb-4"> <!-- Добавляем отступ снизу -->
+        <label for="VkChannel">VK Channel</label>
+        <input type="text" asp-for="VkChannel" class="form-control" id="VkChannel" />
+    </div>
+    <div class="form-group mb-4"> <!-- Добавляем отступ снизу -->
+        <label for="VkBotToken">VK Bot Token</label>
+        <input type="text" asp-for="VkBotToken" class="form-control" id="VkBotToken" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-3" @(Model.AreBotsEnabled ? "disabled" : "")>Сохранить настройки</button>
+        <button type="submit" name="action" value="toggleBots" class="btn @(Model.AreBotsEnabled ? "btn-danger" : "btn-success") mb-3">
+            @(Model.AreBotsEnabled ? "Отключить ботов" : "Включить ботов")
+        </button>
+    </div>
+</form>
+
+<a href="/BadWords/Index" class="btn btn-primary mt-3">Список запрещённых слов</a>
